@@ -25,9 +25,10 @@ struct Node {
 */
 
 Node* add(Node* head, int val){
-
-
-
+    Node * ptr = new Node();
+    ptr -> data = val;
+    ptr -> next = head;
+    head = ptr;
 }
 
 /* Task 2: Implement the following function for printing the elements
@@ -41,14 +42,22 @@ Node* add(Node* head, int val){
    output  The elements in odd position of the given list
 
    Example: input    HEAD->1->2->3->9->12->NULL
-            output   HEAD->1->NA->3->NA->12->NULL
-
- 
+            output   HEAD->1->NA->3->NA->12->NULL 
 */
-
 void printOdd(Node* head){
-
-
+    cout<<"HEAD->";
+    while(head)
+    {
+        if(head->data%2==1)
+        {
+            cout<<head->data<<"->";
+        }else
+        {
+            cout<<"NA->";     
+        }
+        head = head->next;
+    }
+    cout<<"NULL"<<endl;
 }
 
 /* Task 3: Implement the following function for deleting the nodes in
@@ -70,8 +79,25 @@ void printOdd(Node* head){
 */
 
 void clear(Node* n1, Node* n2){
+    Node * test = n1;
+    while((test=test->next)!=NULL)
+    {
+        if(test==n2)
+        {
+            Node * temp =n2;
+            n2 = n1;
+            n1 = temp;
+        }
+    }
 
-
+    Node* seek = n2->next;
+    while(seek!=n1)
+    {
+        Node* temp = seek;
+        seek = seek -> next;
+        delete temp;
+    }
+    n2->next = n1;
 }
 
 // You are not supposed to change the main function
@@ -79,8 +105,7 @@ int main() {
 
     Node* head = NULL;
     Node *p4, *p7;
-    int test;
-    cin >> test;
+
 
     for(int i = 1; i < 10; i++) {
         head = add(head, i);
