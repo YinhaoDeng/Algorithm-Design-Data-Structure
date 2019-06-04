@@ -82,7 +82,6 @@ Node* addTail(Node* head, int val){
 
 //插入指定值到指定位置
 void insert(Node *head,int position,int value){
-    int length;
     Node *tempNode = head;
     Node *insertNode = new Node;
     int i = 0;
@@ -94,7 +93,6 @@ void insert(Node *head,int position,int value){
     insertNode->data = value;
     insertNode->next = tempNode->next;
     tempNode->next = insertNode;
-    length++;
 }
 //来自Kevin.K 我觉得和上面的一样
 Node* anyInsert(Node* head, int position, int val){
@@ -182,7 +180,6 @@ void deletelist(Node *head,int aDate) {
 
 //删除指定位置节点
 void delete_list_position(Node *head, int position){
-    int length;
     Node *tempNode = head;
     Node *deleteNode = new Node;
     int i = 0;
@@ -194,7 +191,6 @@ void delete_list_position(Node *head, int position){
     deleteNode = tempNode->next;
     tempNode->next = deleteNode->next;
     delete deleteNode;
-    length--;
 }
 
 //指定Data在List当中的位置
@@ -332,7 +328,7 @@ void reverse(Node* n1, Node* n2){
     }
 }
 
-//考试题：求偶数位数字之和，第2、4、6..等位
+//考试题：求偶数位数字之和，第2、4、6..等位    (待改进，啰嗦)
 int sumEven(Node* head){
   int sum=0;//set the sum to zero
   int position=0;//set the position to zero
@@ -400,6 +396,8 @@ int main() {
     //cout<<calcSum(head);// 从第二位开始用递归计算链表之和
     //cout<<get_element_of_list(9,head);//指定Data在List当中的位置
     //delete_list_position(head, 5);//删除指定位置节点
+    printall(head);
+    insert(head,3,100);
     printall(head);  //打印所有节点
     // removeMin(p7, head); //去除两节点当中的最小值，链表递减
     // printEven(head);  //打印偶数

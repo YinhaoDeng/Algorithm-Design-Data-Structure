@@ -77,20 +77,35 @@ void printOdd(Node* head){
 
    
 */
+void insert(Node *head,int position,int value){
+    int length;
+    Node *tempNode = head;
+    Node *insertNode = new Node;
+    int i = 0;
+    //搜索第n-1个节点
+    while (tempNode != NULL&&i != position - 1){
+        tempNode = tempNode->next;
+        i++;
+    }
+    insertNode->data = value;
+    insertNode->next = tempNode->next;
+    tempNode->next = insertNode;
+    length++;
+}
 
 void clear(Node* n1, Node* n2){
     Node * test = n1;
-    while((test=test->next)!=NULL)
+    while((test=test->next)!=NULL) // make sure n1 not the head
     {
         if(test==n2)
         {
-            Node * temp =n2;
+            Node * temp =n2;  //swap n1 and n2
             n2 = n1;
             n1 = temp;
         }
     }
 
-    Node* seek = n2->next;
+    Node* seek = n2->next; 
     while(seek!=n1)
     {
         Node* temp = seek;
