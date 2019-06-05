@@ -292,6 +292,36 @@ cout<<"HEAD->";
 cout<<"NULL";
 }
 
+/* Bubble sort the given linked list 来自geekforgeeks*/
+void bubbleSort(struct Node *start) 
+{ 
+    int swapped, i; 
+    struct Node *ptr1; 
+    struct Node *lptr = NULL; 
+   
+    /* Checking for empty list */
+    if (start == NULL) 
+        return; 
+   
+    do
+    { 
+        swapped = 0; 
+        ptr1 = start; 
+   
+        while (ptr1->next != lptr) 
+        { 
+            if (ptr1->data > ptr1->next->data) 
+            {  
+                swap(ptr1->data, ptr1->next->data); 
+                swapped = 1; 
+            } 
+            ptr1 = ptr1->next; 
+        } 
+        lptr = ptr1; 
+    } 
+    while (swapped); 
+} 
+
 //考试题：去除两节点当中的最小值，链表递减
 Node* removeMin(Node* n1, Node* n2){
 Node *pointer;
@@ -397,7 +427,7 @@ int main() {
     //cout<<get_element_of_list(9,head);//指定Data在List当中的位置
     //delete_list_position(head, 5);//删除指定位置节点
     printall(head);
-    insert(head,3,100);
+    ReverseList2(head);
     printall(head);  //打印所有节点
     // removeMin(p7, head); //去除两节点当中的最小值，链表递减
     // printEven(head);  //打印偶数
