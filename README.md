@@ -1,2 +1,2 @@
 # Algorithm-Design-Data-Structure
-ADDS review materials of all EXAMS.
+The best ADDS review materials, ever.
